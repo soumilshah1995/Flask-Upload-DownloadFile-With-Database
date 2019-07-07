@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"> Upload Your Files </h1>
+
+    <br>
+    <br>
+
+    <div class="">
+      <form class="" action="{{ url_for('index') }}" method="POST", enctype="multipart/form-data">
+        {{  form.hidden_tag()  }}
+        {{  form.file()  }}
+        {{ form.submit(  class="btn btn-primary"  )  }}
+      </form>
+    </div>
+
+    <br>
+    <br>
+
+    <form  action="{{  url_for('download')  }}" method="POST">
+      {{  form.download(class="btn btn-primary")   }}
+    </form>
+
+</div>
+
+
+
+<style type="text/css">
+  .container{
+    text-align:center;
+    font-align:center;
+    padding:10px;}
+</style>
+
+{% endblock %}
